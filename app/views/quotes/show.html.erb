@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @quote.qtype %>
+</p>
+
+<p>
+  <strong>Model:</strong>
+  <%= @quote.qmodel %>
+</p>
+
+<p>
+  <strong>Serial:</strong>
+  <%= @quote.qserial %>
+</p>
+
+<p>
+  <strong>Symptoms:</strong>
+  <%= @quote.qsymptoms %>
+</p>
+
+<%= link_to 'Edit', edit_quote_path(@quote) %> |
+<%= link_to 'Back', quotes_path %>

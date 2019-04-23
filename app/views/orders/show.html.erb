@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @order.dtype %>
+</p>
+
+<p>
+  <strong>Model:</strong>
+  <%= @order.dmodel %>
+</p>
+
+<p>
+  <strong>Serial:</strong>
+  <%= @order.dserial %>
+</p>
+
+<p>
+  <strong>Symptoms:</strong>
+  <%= @order.dsymptoms %>
+</p>
+
+<%= link_to 'Edit', edit_order_path(@order) %> |
+<%= link_to 'Back', orders_path %>

@@ -1,0 +1,49 @@
+<% if !current_user.contacts.empty?%>
+<p id="notice"><%= notice %></p>
+
+<h1>Appointments</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Devise</th>
+      <th>Symptom</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% Symptom.where(user_id:current_user.id).each do |contact| %>
+      <tr>
+        <td><%= contact.name %></td>
+        <td><%= contact.choice.name%></td>
+        <td></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<h1>Contact</h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th> Email </th>
+      <th>Name</th>
+      <th>phone_number</th>
+      
+    </tr>
+  </thead>
+
+  <tbody>
+      <tr>
+        <td> <%= current_user.contacts[0].name %> </td>
+        <td> <%= current_user.contacts[0].email%> </td>
+        <td> <%= current_user.contacts[0].phone_number%> </td>
+        
+      </tr>
+    
+  </tbody>
+</table>
+<%else%>
+<h2>You have No Appointment</h2>
+<%end%>

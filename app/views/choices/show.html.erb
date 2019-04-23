@@ -1,0 +1,22 @@
+<div class="container" style="width: 30%;margin-left: 30%">
+  <h2><%= @choice.name%> Symptoms</h2>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Symptom Name</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @choice.symptoms.each do |symptom| %>
+       
+      <tr>
+      	 	<td><%= symptom.name%></td>
+        	<td><%= link_to "Make an Appointment",appointment_path(symptom)%></td>
+        	
+      </tr>
+      <%end%>
+   
+    </tbody>
+  </table>
+</div>    

@@ -1,0 +1,18 @@
+<div class="container" style="width: 30%">
+	<h4>Appointment Selection Tool</h3>
+	<% if current_user.contacts.empty?%>	
+	<div>
+		<%= link_to "Chat Appointment" ,new_contact_path,class:"btn btn-primary" %>
+	</div>
+	<div>
+		<%= link_to "Phone call Appointment" ,new_contact_path,class:"btn btn-success mt-5" %>
+	</div>
+	<%else%>
+	<div>
+		<%= link_to "Chat Appointment" ,homes_index_path,class:"btn btn-primary" %>
+	</div>
+	<div>
+		<%= link_to "Phone call Appointment" ,homes_index_path,class:"btn btn-success mt-5" %>
+	</div>
+	<%end%>
+</div>

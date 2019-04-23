@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Grace</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    
+<!------------------------------------------------------------------------------>
+<!-- Navigation -------------------------------------------------------------->
+
+
+
+    <div class="top-logo">
+      <%= link_to image_tag('logo.png', alt: "Remote Tech Support"), root_path%>
+    </div>
+    
+
+
+    <nav class="navbar navbar-light bg-light justify-content-between navbar navbar-dark bg-dark">
+    
+     <%= link_to "Homepage", root_path, class: "navbar-brand" %>
+     <%= link_to "Services", services_index_path, class: "navbar-brand" %>
+    
+    
+    <!--------------------------------------------------------------------------->
+    
+    <% if user_signed_in? %>
+
+      
+      <%= link_to "Select a Device",homes_index_path ,class:"navbar-brand"%>
+      <%= link_to "Appointments",contacts_path ,class:"navbar-brand"%>
+      <%= link_to "Quotes", quotes_path, class: "navbar-brand" %>
+      <%= link_to "Orders", orders_path, class: "navbar-brand" %>
+      <form class="form-inline">
+        <%= link_to 'Log out',destroy_user_session_path,method: :delete, class:"btn btn-outline-success my-2 my-sm-0"  %>
+      </form>
+
+    
+    
+    
+    <% else %>
+      <form class="form-inline">
+      <%= link_to "Log in", user_session_path, class:"btn btn-outline-success my-2 my-sm-0"%>
+    <% end %>
+    </form>
+    </nav>
+    
+    
+     <p class="notice"><%= notice %></p>
+       <p class="alert"><%= alert %></p>
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+<!--
+
+Footer from previous application
+
+div below has class of just top-logo before
+
+-->
+
+
+
+
+    
+    
+    <!--
+    
+    Commenting out old navigation bar
+    
+    
+    <header class="navbar navbar-fixed-top navbar-inverse">
+      <div class="topnav">
+        <nav>
+          <ul class="nav navbar-nav navbar-right">
+            <li><%= link_to "Homepage", root_path %></li>
+            <li><%= link_to "Services", services_index_path %></li>
+            <li><%= link_to "Contact 2", contacts_path %></li>
+            <% if user_signed_in? %>
+              <li><%= link_to "Quotes", quotes_path %></li>
+              <li><%= link_to "Orders", orders_path %></li>
+            <% end %>
+            <li><%= link_to "Contact Us", contact_index_path%></li>
+            
+    -->
+            
+    <!-- 
+    
+    Commenting out dropdown sign up and log in
+    
+    <div class="dropdown">
+              <button class="dropbtn">Login</button>
+              <i class="fa fa-caret-down"></i>
+              </button>
+              <div class="dropdown-content">
+              
+      -->
+                <!-- new_user_registration_path comes from 'rake routes' list. Always need to add _path at the end -->
+                
+                
+                <!--
+                <li><%= link_to "Sign Up", new_user_registration_path %></li>
+                
+                -->
+                
+                <!-- adding if/else statement to determine if the user is signed in-->
+                <!-- if they are signed in, only a sign out should display on the page -->
+                
+                <!--
+                <% if user_signed_in? %>
+                  <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+                  
+                -->  
+                <!-- else only the log in should display on the page -->
+                <!--
+                <% else %>
+                  <li><%= link_to "Log In", new_user_session_path %></li>
+                <% end %>
+              </div>
+            </div> 
+            </div>
+            
+        </ul>
+    </div>
+    
+          
+            
+          </ul>
+        </nav>
+      </div>
+    </header>    
+    
+-->
+    
+    
+    <%= yield %>
+    
+    <head>
+    <title>Welcome to Repair Shop</title>
+
+    <%= stylesheet_link_tag    'application' %>
+  </head>
+
+
+<!--
+
+Footer from previous application
+
+-->
+
+<div class="footer">
+<div class="footer-logo-container">
+<img class = "footer-logo" <%= image_tag "RemoteSupportLogo.png" %>
+<p>&copy 2019 Remote Tech Support</p>
+</div>
+<div class="footer-content">
+<h2>List1</h2>
+
+   
+    <li><%= link_to "About", "/about" %></li>
+    <li><%= link_to "Customer Stories", "/customerstories" %></li>
+    <li><%= link_to "Contact Us", "/contactus" %></li>
+
+
+</div>
+<div class="footer-content">
+<h2>List2</h2>
+
+
+    <li><%= link_to "Make an Appointment", "/appointment" %></li>
+    <li><%= link_to "Account", "/account" %></li>
+    <li><%= link_to "Terms & Conditions", "/terms" %></li> 
+
+
+</div>
+<div class="footer-content">
+<h2>List3</h2>
+
+    <li><%= link_to "Site Map", "/sitemap" %></li>
+    <li><%= link_to "Privacy Statement", "/privacy" %></li>
+    <li><%= link_to "Find a Repair Center", "/terms" %></li>
+
+</div>  
+
+
+<!--
+
+End of footer from previos application
+
+-->
+
+       
+       
+       
+       
+       
+       
+    <%= yield %>
+  </body>
+</html>
